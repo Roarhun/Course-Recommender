@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Model files (ถ้าใหญ่เกิน)
+*.h5
+*.pt
+*.pkl
+*.joblib
+
+# Environment
+.env

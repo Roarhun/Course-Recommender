@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำคอร์สเรียน</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-blue-50 via-white to-purple-50 min-h-screen py-10 px-4">
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 py-8 px-6 text-center text-white">
+            <h1 class="text-4xl font-bold tracking-wide">🔍 แนะนำคอร์สเรียน</h1>
+        </div>
+
+        <div class="p-8">
+            <form method="POST" class="mb-10">
+                <label for="query" class="block text-gray-700 text-lg font-semibold mb-3">
+                    📝 พิมพ์สิ่งที่คุณอยากเรียน เช่น SQL, data analysis...
+                </label>
+                <input type="text" name="query" id="query" placeholder="เช่น Python, Data Science"
+                    class="shadow-lg border border-gray-300 rounded-xl w-full py-3 px-4 text-gray-700 text-md focus:outline-none focus:ring-2 focus:ring-purple-400 transition duration-200" />
+
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-3 px-6 mt-6 rounded-xl shadow-md transition-transform transform hover:scale-105 duration-200">
+                    📚 แนะนำคอร์ส
+                </button>
+            </form>
+
+            {% if courses %}
+                <div class="bg-gray-50 rounded-xl p-6 shadow-inner">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">🎓 ผลลัพธ์:</h2>
+                    <ul class="space-y-4">
+                        {% for course in courses %}
+                            <li class="bg-white border border-gray-200 p-5 rounded-lg shadow hover:shadow-lg transition duration-200">
+                                <h3 class="text-lg font-bold text-blue-600 mb-1">{{ course.name }}</h3>
+                                <p class="text-sm text-gray-600">
+                                    🏫 {{ course.university }} | 🎯 {{ course.level }} | ⭐ {{ course.rating }}
+                                </p>
+                                <a href="{{ course.url }}" target="_blank" class="text-purple-600 hover:underline text-sm">
+                                    🔗 ดูรายละเอียดคอร์ส
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
